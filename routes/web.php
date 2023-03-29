@@ -19,4 +19,15 @@ Route::get("/", function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get("/home", [
+    App\Http\Controllers\HomeController::class,
+    "index",
+])->name("home");
+
+Route::middleware(["auth"])->group(function () {
+    // Route::get("/stories", "StoriesController@index")->name("stories.index");
+    // Route::get("/stories/{story}", "StoriesController@show")->name(
+    //     "stories.show"
+    // );
+    Route::resource("stories", "storiesController");
+});
