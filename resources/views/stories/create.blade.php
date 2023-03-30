@@ -9,6 +9,7 @@
                     <a href="{{route('stories.index')}}" class="btn btn-secondary" style="float: right">Back</a>
                 <div class="card-body">
                  <form action="{{route('stories.store')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" class= "form-control" />
@@ -25,15 +26,17 @@
                             <option value="long">Long</option>
                         </select>
                     </div>
-                    
-
-
-
-
-
-
-
-
+                    <div class="form-group">
+                        <legend><h6>Status</h6></legend>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="status" value="1">
+                                <label for="active" class="form-check-label">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="status" value="0">
+                                <label for="active" class="form-check-label">No</label>
+                            </div>
+                    </div>
                     <button class="btn btn-primary" style= "margin-block: 10px">Add</button>
                  </form>
                 </div>
